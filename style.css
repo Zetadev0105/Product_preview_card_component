@@ -101,6 +101,10 @@ body {
     font-weight: 700;
 }
 
+.card__button:active {
+    background-color: hsl(158, 42%, 18%);
+}
+
 .attribution {
     font-size: .8rem;
     background-color: hsl(158, 36%, 37%);
@@ -134,6 +138,9 @@ body {
 
     .card__content {
         width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     .card__img img {
         border-radius: .7rem 0 0 .7rem;
