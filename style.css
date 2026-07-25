@@ -1,5 +1,4 @@
 * {
-    font-size: 16px;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -10,14 +9,24 @@ body {
     display: flex;
     flex-direction: column;
     height: 100dvh;
+    --color-name: hsl(212, 21%, 14%);
+    --color-text: hsl(228, 12%, 48%);
+    --color-price: hsl(158, 36%, 37%);
+    --color-price-active:hsl(158, 42%, 18%);
+    --color-card: hsl(0, 0%, 100%);
+    --color-background: hsl(30, 38%, 92%);
+    --font-size-text: clamp(.8rem, 1vw , 1.3rem);
+    --font-size-important: clamp(2.1rem,2.7vw , 3rem);
+    --font-size-button: clamp(1rem, 1.5vw, 2rem);
+    --line-height-name: clamp(1.8rem, 2vw, 3rem);
+    --card-width: clamp(18.75rem, 50vw ,40.25rem);
 }
 
 .card {
     margin: auto;
-    width: 300px;
+    width: var(--card-width); 
     height: fit-content;
-
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--color-card);
     border-radius: .7rem;
 }
 
@@ -29,118 +38,116 @@ body {
 }
 
 .card__img {
-    height: 200px;
+    height: 12.5rem;
 }
 
 .card__content {
     padding: 1.2rem 1rem;
 }
 .card__product {
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    font-size: .7rem;
+    font-size: var(--font-size-text);
     letter-spacing: .4rem;
-    color: hsl(228, 12%, 48%);
+    color: var(--color-text);
 }
 
 .card__name {
-    font-family: "raunces";
+    font-family: "raunces", serif;
     font-weight: 700;
-    font-size: 2.1rem;
-    line-height: 1.8rem;
-    color: hsl(212, 21%, 14%);
-    margin-top: .5rem;
+    font-size: var(--font-size-important);
+    line-height: var(--line-height-name);
+    color: var(--color-name);
+    margin-block-start: .5rem;
 }
 
 .card__description {
-    font-family: "Montserrat";
+    font-family: "Montserrat" ,sans-serif;
     font-weight: 500;
-    font-size: .8rem;
+    font-size: var(--font-size-text);
     line-height: 1.2rem;
-    color: hsl(228, 12%, 48%);
-    margin-top: .5rem;
+    color: var(--color-text);
+    margin-block-start: .5rem;
 }
 
 .card__prices-container {
     display: flex;
     align-items: center;
-    margin-top: .5rem;
+    margin-block-start: .5rem;
 }
 
 .card__prices-container .card__price:first-child {
-    color: hsl(158, 36%, 37%);
-    font-family: "raunces";
+    color: var(--color-price);
+    font-family: "raunces", serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: var(--font-size-important);
 }
 
 .card__prices-container .card__price:last-child {
-    font-size: .8rem;
-    font-family: "Montserrat";
+    font-size: var(--font-size-text);
+    font-family: "Montserrat", sans-serif;
     text-decoration: line-through;
     font-weight: 500;
-    margin-left: .7rem;
-    color: hsl(228, 12%, 48%);
+    margin-inline-start: .7rem;
+    color: var(--color-text);
 }
 
 .card__button {
-    background-color: hsl(158, 36%, 37%);
+    background-color: var(--color-price);
     color: hsl(0, 0%, 100%);
-    
     display: flex;
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
     border-radius: .5rem;
-    margin-top: .5rem;
+    margin-block-start: .5rem;
 }
 
 .card__button p {
-    font-size: 1rem;
-    font-family: "Montserrat";
+    font-size: var(--font-size-button);
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
 }
 
 .card__button:active {
-    background-color: hsl(158, 42%, 18%);
+    background-color: var(--color-price-active);
 }
 
 .attribution {
     font-size: .8rem;
-    background-color: hsl(158, 36%, 37%);
+    background-color: var(--color-price);
     padding: .7rem 0;
     text-align: center;
     text-wrap: pretty;
-    color: hsl(212, 21%, 14%);
-    font-family: "Montserrat";
-    font-family: "Montserrat";
+    color: var(--color-name);
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
 }
 
 .attribution a {
     text-decoration: none;
-    color: hsl(0, 0%, 100%);
+    color: var(--color-card);
 }
 
 /* --- MEDIA  QUERIES --- */
 
 @media screen and (min-width:65rem) {
     .card{
-        display: flex;
-        width: 500px;
+        display: flex; 
         height: fit-content;
     }
 
     .card__img{
         height: 100%;
-        width: 300px;
+        flex: 1;
     }
 
     .card__content {
-        width: 300px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding: 2rem;
+        flex: 1;
     }
     .card__img img {
         border-radius: .7rem 0 0 .7rem;
